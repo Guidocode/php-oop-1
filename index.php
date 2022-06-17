@@ -20,24 +20,27 @@ require_once __DIR__ . '/class/Movie.php';
 
 
 $movies = [
-  $pulpFiction = new Movie(
+  new Movie(
     'Pulp Fiction',
-    'descrizione Pulp Fiction',
-    '1994'
+    "Un killer si innamora della moglie del suo capo, un pugile rinnega la sua promessa e una coppia tenta una rapina che va rapidamente fuori controllo.",
+    '1994',
+    'https://m.media-amazon.com/images/I/81-NJGwcsGL._AC_SL1400_.jpg'
   ),
-  $theImitationGame = new Movie(
+  new Movie(
     'The Imitation Game',
-    'descrizione The Imitation Game',
-    '2014'
+    "La vita del matematico inglese Alan Turing, genio indiscusso del XX secolo, considerato uno dei padri dell'informatica e dei moderni computer, fino alla sua precoce e tragica scomparsa.",
+    '2014',
+    'https://qr.hello-world.it/wp-content/uploads/2019/10/the.jpg'
   ),
-  $fightClub = new Movie(
+  new Movie(
     'Fight Club',
-    'descrizione Fight Club',
-    '1999'
+    "Tyler Durden ed un nuovo amico sfogano la loro aggressività creando un club di combattimento, che assume rapidamente connotati rivoluzionari, fino a esporre la vera identità di Tyler Durden.",
+    '1999',
+    'https://m.media-amazon.com/images/I/81JWVTlPQ2L._SL1500_.jpg'
   )
-  ];
+];
 
-var_dump($movies)
+// var_dump($movies);
 ?>
 
 
@@ -59,24 +62,24 @@ var_dump($movies)
 
   <title>Movies</title>
 </head>
-<body>
+<body class="text-center">
   
-<h1>Stampo gli oggetti Movie con le relative proprietà</h1>
+<h1 class="mb-5">Stampo gli oggetti Movie con le relative proprietà</h1>
 
-<?php for ($i=0; $i < count($movies); $i++) : ?>
-  
-<div class="card" style="width: 18rem;">
+<div class="content d-flex flex-column align-items-center">
+  <?php foreach ($movies as $movie) : ?>
+  <div class="card mb-5" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo $movie->poster ?>" alt="Card image cap">
 
-  <?php foreach ($movie[$i] as $key => $value) : ?>
-  <div class="card-body">
-    <h5 class="card-title"> <?php echo ?> </h5>
-    <p class="card-text"> <?php echo  ?> </p>
-    <span> <?php echo  ?> </span>
+    <div class="card-body">
+      <h5 class="card-title"> <?php echo $movie->getTitle() ?> </h5>
+      <p class="card-text"> <?php echo $movie->description ?> </p>
+      <span> <?php echo $movie->release_year ?> </span>
+    </div>
+    
   </div>
   <?php endforeach; ?>
-
 </div>
-<?php endfor; ?>
 
 </body>
 </html>
