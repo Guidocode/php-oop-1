@@ -64,22 +64,22 @@ $movies = [
 </head>
 <body class="text-center">
   
-<h1 class="mb-5">Stampo gli oggetti Movie con le relative proprietà</h1>
+  <h1 class="mb-5">Stampo gli oggetti Movie con le relative proprietà</h1>
 
-<div class="content d-flex flex-column align-items-center">
-  <?php foreach ($movies as $movie) : ?>
-  <div class="card mb-5" style="width: 18rem;">
-    <img class="card-img-top" src="<?php echo $movie->poster ?>" alt="Card image cap">
+  <div class="content d-flex flex-column align-items-center">
+    <?php foreach ($movies as $movie) : ?>
+    <div class="card mb-5" style="width: 18rem;">
+      <img class="card-img-top" src="<?php echo $movie->poster ?>" alt="Card image cap">
 
-    <div class="card-body">
-      <h5 class="card-title"> <?php echo $movie->getTitle() ?> </h5>
-      <p class="card-text"> <?php echo $movie->description ?> </p>
-      <span> <?php echo $movie->release_year ?> </span>
+      <div class="card-body">
+        <h5 class="card-title"> <?php echo $movie->getTitle() ?> </h5>
+        <p class="card-text"> <?php echo $movie->description ?> </p>
+        <span> <?php echo $movie->release_year ?> </span>
+      </div>
+      
     </div>
-    
+    <?php endforeach; ?>
   </div>
-  <?php endforeach; ?>
-</div>
 
 </body>
 </html>
